@@ -12,14 +12,14 @@ import { getDatabase, ref, set } from "firebase/database";
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAR9jXC6_wDdql_7tKw9xVTtOIqdFGLNng",
-  authDomain: "my-e-commerce-249bc.firebaseapp.com",
-  databaseURL: "https://my-e-commerce-249bc-default-rtdb.firebaseio.com",
-  projectId: "my-e-commerce-249bc",
-  storageBucket: "my-e-commerce-249bc.firebasestorage.app",
-  messagingSenderId: "590442754195",
-  appId: "1:590442754195:web:b4ef6f8aa3ae323a6e1d66",
-  measurementId: "G-MFXSVP6MYL",
+  apiKey: import.meta.env.VITE_APP_API_KEY,
+  authDomain: import.meta.env.VITE_APP_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_APP_DATABASE_URL,
+  projectId: import.meta.env.VITE_APP_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_APP_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_APP_MESSAGEING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_APP_ID,
+  measurementId: import.meta.env.VITE_APP_MEASUREMENT_ID,
 };
 
 const firebaseApp = initializeApp(firebaseConfig);

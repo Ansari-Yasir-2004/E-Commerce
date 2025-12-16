@@ -14,7 +14,7 @@ import ProductDetail from "./pages/ProductDetail";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/E-Commerce/">
       <AuthManager />
       <Routes>
         <Route path="/" element={<MainLayout />}>
