@@ -100,10 +100,14 @@ const Product = () => {
       <Container>
         <div className="row">
           <div className="col-lg-3">
-            <div className="main-filter rounded-3">
-              <div className="filter-head p-3">Product filter</div>
-              <div className="filter-body p-3">
-                <span className="filter-title mb-3 d-inline-block">Price</span>
+            <div className="main-filter border-2 border-black-light-4 rounded-3">
+              <div className="filter-head fs-18 font-geologica fw-500 border-black-light-4 border-start-0 border-top-0 border-end-0 p-3">
+                Product filter
+              </div>
+              <div className="border-black-light-4 border-start-0 border-top-0 border-end-0 p-3">
+                <span className="font-geologica fw-500 mb-3 d-inline-block">
+                  Price
+                </span>
                 <ul>
                   <li>
                     <input type="checkbox" value="0-35" /> <a>$0-$35</a>
@@ -119,8 +123,10 @@ const Product = () => {
                   </li>
                 </ul>
               </div>
-              <div className="filter-body p-3">
-                <span className="filter-title mb-3 d-inline-block">Brands</span>
+              <div className="p-3">
+                <span className="font-geologica fw-500 mb-3 d-inline-block">
+                  Brands
+                </span>
                 <ul>
                   <li>
                     <input type="checkbox" value="0-35" /> <a>e-come-store</a>
@@ -133,8 +139,8 @@ const Product = () => {
                   </li>
                 </ul>
               </div>
-              <div className="filter-body p-3">
-                <span className="filter-title mb-3 d-inline-block">
+              <div className="p-3">
+                <span className="font-geologica fw-500 mb-3 d-inline-block">
                   By Size
                 </span>
                 <ul>
@@ -155,8 +161,10 @@ const Product = () => {
                   </li>
                 </ul>
               </div>
-              <div className="filter-body p-3">
-                <span className="filter-title mb-3 d-inline-block">Colour</span>
+              <div className="p-3">
+                <span className="font-geologica fw-500 mb-3 d-inline-block">
+                  Colour
+                </span>
                 <ul>
                   <li>
                     <input type="checkbox" value="0-35" /> <a>Black</a>
@@ -169,8 +177,10 @@ const Product = () => {
             </div>
           </div>
           <div className="col-lg-9">
-            <div className="main-product rounded-3">
-              <div className="product-head p-3">Product filter</div>
+            <div className="main-product border-2 border-black-light-4 rounded-3">
+              <div className="product-head fs-18 font-geologica fw-500 border-black-light-4 border-start-0 border-top-0 border-end-0 p-3">
+                Product filter
+              </div>
               <div className="product-body row p-3">
                 {productData.map((product) => {
                   const cartProduct = cartProductDataSelector.find(
@@ -183,40 +193,15 @@ const Product = () => {
 
                   return (
                     <div key={product.id} className="col-lg-4 mb-5">
-                      <div className="product-card p-4 position-relative">
-                        <span className="position-absolute top-0 end-0 product-discount">
+                      <div className="product-card border-black-light-4 p-4 position-relative rounded-3">
+                        <span
+                          className="product-discount fs-12 font-geologica fw-500 bg-red text-white rounded-circle 
+                        d-flex justify-content-center align-items-center position-absolute top-0 end-0"
+                        >
                           - {product.discountPercentage.toFixed(1)}%
                         </span>
-                        <div className="product-btn-group w-100 d-flex justify-content-between px-4 py-3 position-absolute start-0 top-100">
-                          <button onClick={() => addToCart(product)}>
-                            <span>
-                              <i className="bi bi-cart"></i>
-                            </span>
-                          </button>
-                          <button
-                            onClick={() => {
-                              navigate(`/product/${product.id}`);
-                            }}
-                          >
-                            <span>
-                              <i className="bi bi-eye"></i>
-                            </span>
-                          </button>
-                          <button onClick={() => addToWishlist(product)}>
-                            <span>
-                              <i
-                                style={{ transition: "all 0.35s ease 0s" }}
-                                className={`bi ${
-                                  wishlistProductExist
-                                    ? "bi-suit-heart-fill text-danger"
-                                    : "bi-suit-heart"
-                                }`}
-                              ></i>
-                            </span>
-                          </button>
-                        </div>
                         <div
-                          className="product-img"
+                          className="product-img cursor-pointer"
                           onClick={() => {
                             navigate(`/product/${product.id}`);
                           }}
@@ -228,22 +213,24 @@ const Product = () => {
                           />
                         </div>
                         <div className="mb-1">
-                          <span className="product-category">
+                          <span className="product-category fs-14 font-geologica text-black-light-3 text-capitalize">
                             {product.category}
                           </span>
                         </div>
                         <div className="mb-2">
-                          <span className="product-title">{product.title}</span>
+                          <span className="product-title font-geologica fw-500 text-black text-capitalize cursor-pointer">
+                            {product.title}
+                          </span>
                         </div>
                         <div className="mb-2">
-                          <span className="product-price">
+                          <span className="product-price fs-18 font-geologica text-red">
                             $
                             {(
                               product.price -
                               product.price * (product.discountPercentage / 100)
                             ).toFixed(2)}
                           </span>
-                          <span className="ms-2 product-cut-price">
+                          <span className="product-cut-price fs-14 font-geologica text-black-light-2 text-decoration-line-through ms-2">
                             ${product.price}
                           </span>
                         </div>
@@ -277,6 +264,41 @@ const Product = () => {
                             </button>
                           </div>
                         )} */}
+                        <div className="product-btn-group bg-white border-black-light-4 border-start-0 border-end-0 border-bottom-0 opacity-0 w-100 d-flex justify-content-between px-4 py-3 position-absolute start-0 top-100">
+                          <button
+                            onClick={() => addToCart(product)}
+                            className="fs-4 bg-transparent text-black-light-1 opacity-50"
+                          >
+                            <span>
+                              <i className="bi bi-cart"></i>
+                            </span>
+                          </button>
+                          <button
+                            onClick={() => {
+                              navigate(`/product/${product.id}`);
+                            }}
+                            className="fs-4 bg-transparent text-black-light-1 opacity-50"
+                          >
+                            <span>
+                              <i className="bi bi-eye"></i>
+                            </span>
+                          </button>
+                          <button
+                            onClick={() => addToWishlist(product)}
+                            className="fs-4 bg-transparent text-black-light-1 opacity-50"
+                          >
+                            <span>
+                              <i
+                                style={{ transition: "all 0.35s ease 0s" }}
+                                className={`bi ${
+                                  wishlistProductExist
+                                    ? "bi-suit-heart-fill text-danger"
+                                    : "bi-suit-heart"
+                                }`}
+                              ></i>
+                            </span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   );

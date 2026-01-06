@@ -3,36 +3,36 @@ import { Link } from "react-router";
 
 const Navbar = () => {
   return (
-    <nav className="d-flex justify-content-between mt-4">
+    <nav className="font-geologica fw-500 border-black-light-4 border-start-0 border-end-0 d-flex justify-content-between mt-4">
       <div className="nav-left">
         <ul className="nav-links-left d-flex">
-          <li>
-            <Link className="nav-left-items">TV & Video</Link>
+          <li className="position-relative">
+            <Link className="nav-left-items d-inline-block text-black-light-2">TV & Video</Link>
           </li>
-          <li>
-            <Link className="nav-left-items">Home Audio & Theater</Link>
+          <li className="position-relative">
+            <Link className="nav-left-items d-inline-block text-black-light-2">Home Audio & Theater</Link>
           </li>
-          <li>
-            <Link className="nav-left-items">Camera, Photo & VideoCell</Link>
+          <li className="position-relative">
+            <Link className="nav-left-items d-inline-block text-black-light-2">Camera, Photo & VideoCell</Link>
           </li>
-          <li>
-            <Link className="nav-left-items">Phones & Accessories</Link>
+          <li className="position-relative">
+            <Link className="nav-left-items d-inline-block text-black-light-2">Phones & Accessories</Link>
           </li>
         </ul>
       </div>
-      <div className="nav-right">
+      <div className="nav-right primary-linear-gradient">
         <ul className="nav-links-right d-flex">
-          <li>
-            <Link className="nav-right-items">Flash Deals</Link>
+          <li className="position-relative">
+            <Link className="nav-right-items d-inline-block text-white">Flash Deals</Link>
           </li>
-          <li>
-            <Link className="nav-right-items">Tech Discovery</Link>
+          <li className="position-relative">
+            <Link className="nav-right-items d-inline-block text-white">Tech Discovery</Link>
           </li>
-          <li>
-            <Link className="nav-right-items">Trending Styles</Link>
+          <li className="position-relative">
+            <Link className="nav-right-items d-inline-block text-white">Trending Styles</Link>
           </li>
-          <li>
-            <Link className="nav-right-items">Gift Cards</Link>
+          <li className="position-relative">
+            <Link className="nav-right-items d-inline-block text-white">Gift Cards</Link>
           </li>
         </ul>
       </div>

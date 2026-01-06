@@ -45,7 +45,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="mt-4">
+    <div className="my-4">
       <Container>
         <div className="custom-bread">
           <span>
@@ -54,10 +54,12 @@ const Cart = () => {
           / Your Shopping Cart
         </div>
         {cartProductDataSelector.length === 0 ? (
-          <div className="main-cart-product my-5">
+          <div className="main-cart-product border-2 border-black-light-4 rounded-3 my-5">
             <div className="d-flex flex-column">
-              <div className="cart-head mx-auto translate-middle-y">Cart</div>
-              <p className="empty-msg mx-auto mb-4">
+              <div className="cart-head d-inline-block fs-18 font-geologica fw-500 bg-white rounded-pill border-2 border-black-light-1 mx-auto translate-middle-y">
+                Cart
+              </div>
+              <p className="empty-msg h1 fw-lighter text-black-light-2 mx-auto mb-4">
                 Your cart is currently empty.
               </p>
               <button
@@ -73,13 +75,13 @@ const Cart = () => {
         ) : (
           <div className="row mt-5">
             <div className="col-lg-8">
-              <div className="main-cart-product">
+              <div className="main-cart-product border-2 border-black-light-4 rounded-3">
                 <div className="d-flex">
-                  <div className="cart-head mx-auto translate-middle-y">
+                  <div className="cart-head d-inline-block fs-18 font-geologica fw-500 bg-white rounded-pill border-2 border-black-light-1 mx-auto translate-middle-y">
                     Cart
                   </div>
                 </div>
-                <div className="row ">
+                <div className="row">
                   {cartProductDataSelector.map((product) => {
                     const cartProduct = cartProductDataSelector.find(
                       (item) => item.id === product.id
@@ -88,24 +90,24 @@ const Cart = () => {
 
                     return (
                       <div key={product.id} className="col-sm-12">
-                        <div className="cart-product-card row m-0 d-flex align-items-center py-4 position-relative">
+                        <div className="cart-product-card row m-0 align-items-center border-black-light-4 border-start-0 border-top-0 border-end-0 py-4 position-relative">
                           {/* <span
                         className="badge bg-danger position-absolute top-0 end-0 fs-6"
                         style={{ transform: "translate(-20%, 50%)" }}
                       >
                         -{product.discountPercentage}%
                       </span> */}
-                          <div
-                            className="cart-product-del-btn col-md-1 d-flex"
-                            onClick={() => {
-                              removeProductFromCart(product.id);
-                            }}
-                          >
-                            <span className="d-inline-block fs-5 mx-auto">
+                          <div className="col-md-1 d-flex">
+                            <span
+                              onClick={() => {
+                                removeProductFromCart(product.id);
+                              }}
+                              className="cart-product-del-btn d-inline-block fs-5 mx-auto cursor-pointer"
+                            >
                               <i className="bi bi-x-lg "></i>
                             </span>
                           </div>
-                          <div className="cart-product-img col-md-2 d-flex align-items-center px-1">
+                          <div className="cart-product-img col-md-2 d-flex align-items-center px-1 border-black-light-4 rounded-3">
                             <img
                               src={product.images[0]}
                               alt={product.title}
@@ -114,35 +116,48 @@ const Cart = () => {
                           </div>
                           <div className="col-md-3 d-flex">
                             <div className="ms-3">
-                                <span className="cart-product-detail">{product.title}</span>
+                              <span className="cart-product-detail font-geologica fw-500 text-black cursor-pointer">
+                                {product.title}
+                              </span>
                             </div>
                           </div>
                           <div className="col-md-4 d-flex">
                             <span className="d-inline-block mx-auto">
                               <div>
                                 <button
-                                  className="btn btn-danger"
+                                  className="quantity-btn btn-gradient rounded-circle"
                                   onClick={() => {
                                     increaseQuantity(product);
                                   }}
                                 >
-                                  +
-                                </button>{" "}
-                                <span>{prodQty}</span>{" "}
+                                  <span>
+                                    <i className="bi bi-plus-lg"></i>
+                                  </span>
+                                </button>
+                                <span className="fs-18 font-geologica fw-500 text-black-light-1 mx-2">
+                                  {prodQty}
+                                </span>
                                 <button
-                                  className="btn btn-danger"
+                                  className="quantity-btn btn-gradient rounded-circle"
                                   onClick={() => {
                                     decreaseQauntity(product);
                                   }}
                                 >
-                                  -
+                                  <span>
+                                    <i className="bi bi-dash-lg"></i>
+                                  </span>
                                 </button>
                               </div>
                             </span>
                           </div>
                           <p className="mb-0 ms-auto col-md-2 d-flex">
                             <span className="d-inline-block mx-auto">
-                              ${product.price * product.quantity}
+                              $
+                              {(
+                                product.price -
+                                product.price *
+                                  (product.discountPercentage / 100)
+                              ).toFixed(2) * product.quantity}
                             </span>
                           </p>
                         </div>
@@ -153,9 +168,9 @@ const Cart = () => {
               </div>
             </div>
             <div className="col-lg-4">
-              <div className="main-cart-product">
+              <div className="main-cart-product border-2 border-black-light-4 rounded-3">
                 <div className="d-flex">
-                  <div className="cart-head mx-auto translate-middle-y">
+                  <div className="cart-head d-inline-block fs-18 font-geologica fw-500 bg-white rounded-pill border-2 border-black-light-1 mx-auto translate-middle-y">
                     Cart Total
                   </div>
                 </div>

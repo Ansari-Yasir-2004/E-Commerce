@@ -105,13 +105,13 @@ const ProductDetail = () => {
                 </span>{" "}
                 / Product Detail: {product.title}
               </div>
-              <div className="mt-4 row">
+              <div className="my-4 row">
                 <div className="col-lg-6 product-detail-img d-flex justify-content-center gap-3">
                   <div className="product-detail-img-list">
                     {product.images.map((prodImg, index) => (
                       <div
                         key={index}
-                        className="product-detail-img-list-images mb-3 p-1"
+                        className="product-detail-img-list-images border-black-light-4 rounded-3 mb-3 p-1"
                       >
                         <img
                           className="img-fluid"
@@ -121,44 +121,44 @@ const ProductDetail = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="product-detail-img-active p-3">
+                  <div className="product-detail-img-active border-black-light-4 rounded-3 cursor-pointer p-3">
                     <img
-                      className="product-detail-img-active-images"
+                      className="product-detail-img-active-images w-100"
                       src={product.thumbnail}
                       alt={product.title}
                     />
                   </div>
                 </div>
                 <div className="col-lg-4 product-detail-info">
-                  <div className="product-detail-category my-3">
+                  <span className="product-detail-category d-inline-block fs-14 text-black-light-3 text-capitalize my-3">
                     {product.category}
-                  </div>
-                  <div className="product-detail-tilte mb-1">
+                  </span>
+                  <h4 className="product-detail-tilte text-black text-capitalize mb-1">
                     {product.title}
-                  </div>
-                  <div className="product-detail-price mb-3">
+                  </h4>
+                  <p className="product-detail-price fs-4 fw-500 text-black-light-2 mb-3">
                     $
                     {(
                       product.price -
                       (product.discountPercentage / 100) * product.price
                     ).toFixed(2)}
-                    <span className="product-detail-cut-price ms-2">
+                    <span className="product-detail-cut-price fs-6 text-red text-decoration-line-through ms-2">
                       ${product.price}
                     </span>
-                  </div>
-                  <div className="product-detail-availability mb-2">
+                  </p>
+                  <div className="product-detail-availability fs-14 text-black-light-3 text-capitalize mb-2">
                     Availibity:{" "}
                     <span className="text-success fw-bold">
                       {product.availabilityStatus}
                     </span>
                   </div>
-                  <div className="product-detail-brand mb-2">
+                  <p className="product-detail-brand text-black-light-1 mb-2">
                     Brand: <span>{product.brand}</span>
-                  </div>
-                  <div className="product-detail-sku mb-2">
+                  </p>
+                  <p className="product-detail-sku text-black-light-1 mb-2">
                     SKU: <span>{product.sku}</span>
-                  </div>
-                  <div className="product-detail-description mb-4">
+                  </p>
+                  <div className="product-detail-description fs-14 text-black-light-2 mb-4">
                     {product.description}
                   </div>
                   <div className="d-flex gap-2">
@@ -169,17 +169,14 @@ const ProductDetail = () => {
                       Add to cart
                     </button>
                     <button
-                      style={{
-                        border: "2px solid var(--border-black-light-color)",
-                        backgroundColor: "transparent",
-                        borderRadius: "50%",
-                      }}
+                      style={{ width: "50px", height: "50px" }}
+                      className="border-2 border-black-light-4 bg-transparent rounded-circle"
                       onClick={() => addToWishlist()}
                     >
-                      <span className="product-datail-heart-btn px-2">
+                      <span className="product-datail-heart-btn fs-4 bg-transparent text-black-light-1 opacity-50">
                         <i
-                          style={{ transition: "all 0.35s ease 0s" }}
-                          className={`bi  ${
+                          style={{ transition: "all 0.35s ease 0s" }} 
+                          className={`bi ${
                             wishlistProductData.some(
                               (prodDetail) => prodDetail.id === product.id
                             )
